@@ -1,22 +1,26 @@
 <html>
 	<head>
 		<title>My Blog | {{ title }}</title>
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<h1>Hello, {{ user.name }}</h1>
-		{% if user.name == 'Jason Brooks' %}
-		<h2>Secret message for all Jasons</h2>
-		{% endif %}
-
-		{% for friend in friends %}
-			<h1>Friend: {{ friend.name }}</h1>
-		{% endfor %}
-
 		<form id="new-post" action="/new-post" method="POST">
 			<input name="post-title"> <br />
 			<textarea name="post-content" width="300" height="300"></textarea> <br />
-			<button type="submit">Submit</button>
+			<input name="post-author"> <br />
+			<button class="btn btn-primary" type="submit">Submit</button>
 		</form>
+		{% for post in posts %}
+			<h1>#{{ post.id }}: {{ post.title }}</h1>
+			<h2>{{ post.author.name }}</h2>
+			<h3>----------------------</h3>
+			<h3>{{ post.body }}</h3>
+			<br />
+			<h3>--------------------------------</h3>
+			<br />
+		{% endfor %}
+
 	</body>
 </html>
 
