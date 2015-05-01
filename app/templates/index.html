@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>My Blog | {{ title }}</title>
+	</head>
+	<body>
+		<h1>Hello, {{ user.name }}</h1>
+		{% if user.name == 'Jason Brooks' %}
+		<h2>Secret message for all Jasons</h2>
+		{% endif %}
+
+		{% for friend in friends %}
+			<h1>Friend: {{ friend.name }}</h1>
+		{% endfor %}
+
+		<form id="new-post" action="/new-post" method="POST">
+			<input name="post-title"> <br />
+			<textarea name="post-content" width="300" height="300"></textarea> <br />
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
+
+
